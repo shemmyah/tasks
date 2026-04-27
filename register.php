@@ -18,46 +18,46 @@ if(isset($_POST['register'])){
 </head>
 
 <body>
-    <main class="container-md mt-12" style="background: salmon;">
-        <div class="bg-white mx-auto w-1/2 border border-0" style="background: lightyellow;">
-            <div class="bg-white text-2xl border-0 font-semibold" style="background: lightblue;">
-                <h1 class="text-center uppercase mb-4">Registration</h1>
+    <main class="container-md mt-12">
+        <div class="bg-white mx-auto w-[45%]">
+            <div class="bg-white">
+                <h1 class="text-center uppercase mb-6 text-[2.50rem] font-semibold ">Registration</h1>
             </div>
-            <div class="card-body">
-                <form action="" method="post">
-                    <div class="row mb-4">
-                        <div class="col-md-6">
-                            <label for="first-name" class="form-label">First Name <span class="text-danger">*</span></label>
-                            <input type="text" name="first_name" id="first_name" class="form-control" required autofocus>
+            <div class="p-5">
+                <form action="#" method="post">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        <div>
+                            <label for="first-name" class="block mb-2 text-base">First Name <span class="text-red-500">*</span></label>
+                            <input type="text" name="first_name" id="first_name" class="w-full border border-gray-300 rounded-md px-3 py-1.5 focus:outline-none" required autofocus>
                         </div>
-                        <div class="col-md-6">
-                            <label for="last-name" class="form-label">Last Name <span class="text-danger">*</span></label>
-                            <input type="text" name="last_name" id="last-name" class="form-control" required>
+                        <div>
+                            <label for="last-name" class="block mb-2 text-base">Last Name <span class="text-red-500">*</span></label>
+                            <input type="text" name="last_name" id="last-name" class="w-full border border-gray-300 rounded-md px-3 py-1.5 focus:outline-none" required>
                         </div>
                     </div>
-                    <div class="mb-4">
-                        <label for="address" class="form-label">Address <span class="text-danger">*</span></label>
-                        <input type="text" name="address" id="address" class="form-control">
+                    <div class="mb-6">
+                        <label for="address" class="block mb-2 text-base">Address <span class="text-red-500">*</span></label>
+                        <input type="text" name="address" id="address" class="w-full border border-gray-300 rounded-md px-3 py-1.5 focus:outline-none">
                     </div>
-                    <div class="mb-4">
-                        <label for="contact-number" class="form-label">Contact Number <span class="text-danger">*</span></label>
-                        <input type="text" name="contact_number" id="contact-number" class="form-control" required>
+                    <div class="mb-6">
+                        <label for="contact-number" class="block mb-2 text-base">Contact Number <span class="text-red-500">*</span></label>
+                        <input type="text" name="contact_number" id="contact-number" class="w-full border border-gray-300 rounded-md px-3 py-1.5 focus:outline-none" required>
                         <!-- pattern="[0-9]+" maxlength="11" placeholder="09xxxxxxxxx" -->
                     </div>
-                    <div class="mb-4">
-                        <label for="username" class="form-label">Username <span class="text-danger">*</span></label>
-                        <input type="text" name="username" id="username" class="form-control" maxlength="15" required>
+                    <div class="mb-6">
+                        <label for="username" class="block mb-2 text-base">Username <span class="text-red-500">*</span></label>
+                        <input type="text" name="username" id="username" class="w-full border border-gray-300 rounded-md px-3 py-1.5 focus:outline-none"" maxlength="15" required>
                     </div>
-                    <div class="mb-5">
-                        <label for="password" class="form-label">Password <span class="text-danger">*</span></label>
-                        <input type="password" name="password" id="password" class="form-control" minlength="8" required>
+                    <div class="mb-12">
+                        <label for="password" class="block mb-2 text-base">Password <span class="text-red-500">*</span></label>
+                        <input type="password" name="password" id="password" class="w-full border border-gray-300 rounded-md px-3 py-1.5 focus:outline-none" minlength="8" required>
                     </div>
-                    <div class="row">
-                        <div class="col">
-                            <button type="submit" name="register" class="btn btn-success px-5 py-2 text-uppercase">Register</button>
+                    <div class="grid grid-cols-1 md:grid-cols-2 items-center">
+                        <div>
+                            <button type="submit" name="register" class="bg-green-700 text-white px-12 py-2 uppercase hover:bg-green-800 transition rounded-md">Register</button>
                         </div>
-                        <div class="col position-relative">
-                            <p class="mb-0 position-absolute"><span class="text-dark">Have an account? </span><a href="login.php">Sign In</a></p>
+                        <div class="relative">
+                            <p class="position-absolute"><span class="text-black">Have an account? </span><a href="login.php" class="text-blue-600 underline">Sign In</a></p>
                         </div>
                     </div>
                 </form>
