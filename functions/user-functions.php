@@ -26,12 +26,12 @@ function register()
             exit;
         } else {
             // die("Error inserting to Users table: " . $conn->error);
-            echo "<div class='alert alert-danger text-center fw-bold' role='alert'>
+            echo "<div class='bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded text-center font-semibold mb-4'>
             Error in USERS Table: ".$conn->error."</div>";
         }
     } else {
         // die("Error inserting to Accounts table: " . $conn->error);
-        echo "<div class='alert alert-danger text-center fw-bold' role='alert'>
+        echo "<div class='bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded text-center font-semibold mb-4'>
         Error in ACCOUNTS Table: ".$conn->error."</div>";
     }
 }
@@ -41,7 +41,7 @@ function login()
     $conn = dbConnect();
     $username = $_POST['username'];
     $password = $_POST['password'];
-    $error = "<div class='alert alert-danger text-center fw-bold' role='alert'>Incorrect Username or Password</div>";
+    $error = "<div class='bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded text-center font-semibold mb-4'>Incorrect Username or Password</div>";
 
     $sql = "SELECT * FROM accounts WHERE username = '$username'";
 
