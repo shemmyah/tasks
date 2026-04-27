@@ -58,7 +58,7 @@ include 'functions/category-functions.php';
             ?>
         </div>
 
-        <table class="w-1/2 mx-auto mt-10 text-center border-collapse">
+        <table class="w-1/2 mx-auto mt-10 text-center border border-gray-300">
             <thead class="bg-gray-800 text-white uppercase">
                 <tr>
                     <th class="p-3">Category ID</th>
