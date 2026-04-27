@@ -150,14 +150,18 @@ function addUser()
         $sql_users = "INSERT INTO users (first_name, last_name, `address`, contact_number, avatar, account_id) VALUES ('$first_name', '$last_name', '$address','$contact_number', '$avatar', $account_id)";
 
         if ($conn->query($sql_users)) {
-            echo "<div class='mt-4 alert alert-success text-center fw-bold' role='alert'>NEW USER ADDED: $first_name $last_name</div>";
+            echo "<div class='mt-4 bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded text-center font-bold' role='alert'>
+            NEW USER ADDED: $first_name $last_name
+            </div>";
         } else {
-            echo "<div class='alert alert-danger text-center fw-bold' role='alert'>Error: ".$conn->error."
+            echo "<div class='mt-4 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded text-center font-bold' role='alert'>
+            Error: ".$conn->error."
             </div>";
         }
     } else {
-        echo "<div class='alert alert-danger text-center fw-bold' role='alert'>
-        Error: ".$conn->error."</div>";
+        echo "<div class='mt-4 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded text-center font-bold' role='alert'>
+        Error: ".$conn->error."
+        </div>";
     }
 }
 
