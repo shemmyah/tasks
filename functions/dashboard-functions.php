@@ -4,26 +4,29 @@ require_once 'connection.php';
 function displayAllPosts(){
     $conn = dbConnect();
     $sql = "SELECT post_id, post_title, username, category_name, date_posted FROM posts INNER JOIN categories ON posts.category_id = categories.category_id INNER JOIN accounts ON posts.account_id = accounts.account_id ORDER BY date_posted";
-
+ 
     if($result = $conn->query($sql)){
         if($result->num_rows > 0){
             while($row = $result->fetch_assoc()){
                 echo "
-                    <tr>
-                        <td>".$row['post_id']."</td>
-                        <td class='fw-bold'>".$row['post_title']."</td>
-                        <td>".$row['username']."</td>
-                        <td>".$row['category_name']."</td>
-                        <td>".date("M d, Y", strtotime($row['date_posted']))."</td>
-                        <td>
-                            <a href='post-details.php?post_id=".$row['post_id']."' class='btn btn-sm btn-outline-dark'><i class='fa-solid fa-angle-double-right'></i> Details</a>
+                    <tr class='border-b border-gray-300'>
+                        <td class='p-3'>".$row['post_id']."</td>
+                        <td class='p-3 font-bold'>".$row['post_title']."</td>
+                        <td class='p-3'>".$row['username']."</td>
+                        <td class='p-3'>".$row['category_name']."</td>
+                        <td class='p-3'>".date("M d, Y", strtotime($row['date_posted']))."</td>
+                        <td class='p-3'>
+                            <a href='post-details.php?post_id=".$row['post_id']."'
+                               class='border border-gray-800 text-gray-800 text-sm px-3 py-1 rounded'>
+                               <i class='fa-solid fa-angle-double-right'></i> Details
+                            </a>
                         </td>
                     </tr>
                 ";
             }
         } else {
             echo "<tr>
-                <td colspan='5' class='text-center lead fst-italic fw-bold'>
+                <td colspan='5' class='text-center p-4 text-lg italic font-bold'>
                     No Records Found
                 </td>
             </tr>";
