@@ -17,7 +17,7 @@ $user_details = getProfileDetails($_SESSION['account_id']);
 </head>
 
 <body>
-    <header class="mb-10">
+    <header class="mb-9">
         <?php 
         if($_SESSION['role'] == "U"){
             include 'user-menu.php';
@@ -28,62 +28,62 @@ $user_details = getProfileDetails($_SESSION['account_id']);
         <div class="bg-gray-500 text-white p-[2.1rem] pl-12">
             <h2 class="text-7xl font-light "><i class="fa-solid fa-user"></i> Profile</h2>        
         </div>
-        <div class="bg-gray-100 p-8">
-            <div class="grid grid-cols-2 gap-4">
+        <div class="bg-gray-100 p-[3.1rem]">
+            <div class="grid grid-cols-2 gap-6">
                 <div>
-                    <a class="bg-blue-600 text-white px-4 py-2 w-1/2 block ml-auto text-center" href="change-password.php">
+                    <a class="bg-blue-600 text-white px-3 py-[0.4rem] w-1/2 block ml-auto text-center truncate rounded-md" href="change-password.php">
                         <i class="me-1 fa-solid fa-lock"></i> Change Password
                     </a>
                 </div>
                 <div>
-                    <a class="btn btn-danger col-6 d-block me-auto text-truncate" href="delete-account.php">
+                    <a class="bg-red-600 text-white px-3 py-[0.4rem] w-1/2 block mr-auto text-center truncate rounded-md" href="delete-account.php">
                         <i class="me-1 fa-solid fa-trash-alt"></i> Delete Account
                     </a>
                 </div>
             </div>
         </div>
     </header>
-    <main class="container">
+    <main class="container-md mx-auto w-11/12 px-3 py-3">
         <form method="post" enctype="multipart/form-data">
-            <div class="row">
-                <div class="col-8 px-5">
+            <div class="grid grid-cols-12 gap-6">
+                <div class="col-span-8 px-10">
                 <?php
                 if (isset($_POST['update'])) {
                     updateProfile($_SESSION['account_id']);
                 }
                 ?>
-                    <div class="row mb-3">
-                        <div class="col-6">
-                            <label for="first-name" class="small form-label">First Name</label>
-                            <input type="text" name="first_name" id="first-name" class="form-control" required autofocus value="<?= $user_details['first_name'] ?>">
+                    <div class="grid grid-cols-2 gap-4 mb-5">
+                        <div>
+                            <label for="first-name" class="text-sm block mb-2">First Name</label>
+                            <input type="text" name="first_name" id="first-name" class="w-full border border-gray-300 px-3 py-1.5 rounded-md" required autofocus value="<?= $user_details['first_name'] ?>">
                         </div>
-                        <div class="col-6">
-                            <label for="last-name" class="small form-label">Last Name</label>
-                            <input type="text" name="last_name" id="last-name" class="form-control" required value="<?= $user_details['last_name'] ?>">
-                        </div>
-                    </div>
-                    <div class="row mb-3">
-                        <div class="col-md-8">
-                            <label for="address" class="small form-label">Address</label>
-                            <input type="text" name="address" id="address" class="form-control" required value="<?= $user_details['address'] ?>">
-                        </div>
-                        <div class="col-md-4">
-                            <label for="contact-number" class="small form-label">Contact Number</label>
-                            <input type="text" name="contact_number" id="contact-number" class="form-control" required value="<?= $user_details['contact_number'] ?>">
+                        <div>
+                            <label for="last-name" class="text-sm block mb-2">Last Name</label>
+                            <input type="text" name="last_name" id="last-name" class="w-full border border-gray-300 px-3 py-1.5 rounded-md" required value="<?= $user_details['last_name'] ?>">
                         </div>
                     </div>
+                    <div class="grid grid-cols-12 gap-4 mb-5">
+                        <div class="col-span-8">
+                            <label for="address" class="text-sm block mb-2">Address</label>
+                            <input type="text" name="address" id="address" class="w-full border border-gray-300 px-3 py-1.5 rounded" required value="<?= $user_details['address'] ?>">
+                        </div>
+                        <div class="col-span-4">
+                            <label for="contact-number" class="text-sm block mb-2">Contact Number</label>
+                            <input type="text" name="contact_number" id="contact-number" class="w-full border border-gray-300 px-3 py-1.5 rounded" required value="<?= $user_details['contact_number'] ?>">
+                        </div>
+                    </div>
 
-                    <label for="username" class="small form-label">Username</label>
-                    <input type="text" name="username" id="username" class="form-control mb-3" required value="<?= $user_details['username'] ?>">
+                    <label for="username" class="text-sm block mb-2">Username</label>
+                    <input type="text" name="username" id="username" class="w-full border border-gray-300 px-3 py-1.5 rounded mb-5" required value="<?= $user_details['username'] ?>">
 
-                    <label for="password" class="small form-label">Password</label>
-                    <input type="password" name="password" id="password" class="form-control" placeholder="Enter password to confirm" required>
+                    <label for="password" class="text-sm block mb-2">Password</label>
+                    <input type="password" name="password" id="password" class="w-full border border-gray-300 px-3 py-1.5 rounded" placeholder="Enter password to confirm" required>
 
-                    <button type="submit" class="btn btn-primary text-white text-uppercase mt-4 w-100" name="update">Update</button>
+                    <button type="submit" class="bg-blue-600 text-white w-full mt-6 py-2 uppercase rounded-md" name="update">Update</button>
                 </div>
-                <div class="col-4">
-                    <img src="images/<?= $user_details['avatar'] ?>" class='w-100 mb-2'>
-                    <input type="file" name="avatar" class="form-control" aria-label="Choose Photo" accept="image/*">
+                <div class="col-span-4">
+                    <img src="images/<?= $user_details['avatar'] ?>" class='w-full mb-3'>
+                    <input type="file" name="avatar" class="w-full border rounded-md border-gray-300 file:mr-4 file:px-4 file:p-1.5 file:border-r-1 file:border-gray-200 file:bg-gray-100 file:text-gray-700" aria-label="Choose Photo" accept="image/*">
                 </div>
             </div>
         </form>
