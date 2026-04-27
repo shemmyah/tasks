@@ -10,7 +10,7 @@ function displayCategories(){
         if($result->num_rows > 0){
             while($row = $result->fetch_assoc()){
                 echo"
-                    <tr class='border-b border-gray-300'>
+                    <tr class='border-b border-gray-300 odd:bg-gray-100 hover:bg-gray-100'>
                         <td class='p-3'>".$row['category_id']."</td>
                         <td class='p-3'>".$row['category_name']."</td>
                         <td class='p-3'>

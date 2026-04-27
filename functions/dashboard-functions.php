@@ -9,7 +9,7 @@ function displayAllPosts(){
         if($result->num_rows > 0){
             while($row = $result->fetch_assoc()){
                 echo "
-                    <tr class='border-b border-gray-300'>
+                    <tr class='border-b border-gray-300 odd:bg-gray-100 hover:bg-gray-100'>
                         <td class='p-3'>".$row['post_id']."</td>
                         <td class='p-3 font-bold'>".$row['post_title']."</td>
                         <td class='p-3'>".$row['username']."</td>

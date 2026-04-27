@@ -88,27 +88,43 @@ function displayAllUsers()
 {
     $conn = dbConnect();
 
-    $sql = "SELECT * FROM users INNER JOIN accounts ON accounts.account_id = users.account_id WHERE accounts.role = 'U'";
+    $sql = "SELECT * FROM users 
+            INNER JOIN accounts 
+            ON accounts.account_id = users.account_id 
+            WHERE accounts.role = 'U'";
 
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
             echo "
-                <tr>
-                    <td>".$row['user_id']."</td>
-                    <td>".$row['first_name']." ".$row['last_name']."</td>
-                    <td>".$row['contact_number']."</td>
-                    <td>".$row['address']."</td>
-                    <td>".$row['username']."</td>
-                    <td><a href='update-user.php?account_id=".$row['account_id']."' class='btn btn-sm btn-warning text-white'>Update</a></td>
-                    <td><a href='delete-user.php?account_id=".$row['account_id']."' class='btn btn-sm btn-danger text-white'>Delete</a></td>
+                <tr class='border-b border-gray-300 odd:bg-gray-100 hover:bg-gray-100'>
+                    <td class='p-3'>{$row['user_id']}</td>
+                    <td class='p-3'>{$row['first_name']} {$row['last_name']}</td>
+                    <td class='p-3'>{$row['contact_number']}</td>
+                    <td class='p-3'>{$row['address']}</td>
+                    <td class='p-3'>{$row['username']}</td>
+
+                    <td class='p-3'>
+                        <a href='update-user.php?account_id={$row['account_id']}'
+                           class='inline-block text-sm bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600'>
+                            Update
+                        </a>
+                    </td>
+
+                    <td class='p-3'>
+                        <a href='delete-user.php?account_id={$row['account_id']}'
+                           class='inline-block text-sm bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600'>
+                            Delete
+                        </a>
+                    </td>
                 </tr>
             ";
         }
     } else {
-        echo "<tr>
-            <td colspan='7' class='text-center lead fw-bold fst-italic'>
+        echo "
+        <tr>
+            <td colspan='7' class='text-center text-lg italic font-bold p-4'>
                 No Records Found
             </td>
         </tr>";
@@ -134,14 +150,18 @@ function addUser()
         $sql_users = "INSERT INTO users (first_name, last_name, `address`, contact_number, avatar, account_id) VALUES ('$first_name', '$last_name', '$address','$contact_number', '$avatar', $account_id)";
 
         if ($conn->query($sql_users)) {
-            echo "<div class='mt-4 alert alert-success text-center fw-bold' role='alert'>NEW USER ADDED: $first_name $last_name</div>";
+            echo "<div class='mt-4 bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded text-center font-bold' role='alert'>
+            NEW USER ADDED: $first_name $last_name
+            </div>";
         } else {
-            echo "<div class='alert alert-danger text-center fw-bold' role='alert'>Error: ".$conn->error."
+            echo "<div class='mt-4 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded text-center font-bold' role='alert'>
+            Error: ".$conn->error."
             </div>";
         }
     } else {
-        echo "<div class='alert alert-danger text-center fw-bold' role='alert'>
-        Error: ".$conn->error."</div>";
+        echo "<div class='mt-4 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded text-center font-bold' role='alert'>
+        Error: ".$conn->error."
+        </div>";
     }
 }
 
