@@ -50,9 +50,9 @@ include "functions/dashboard-functions.php";
     <main class="w-5/6 mx-auto">
         <h3 class="text-gray-600 font-bold uppercase text-2xl mb-3">All Posts</h3>
 
-        <div class="grid grid-cols-4 gap-6">
+        <div class="grid grid-cols-4 gap-6 ">
             <div class="col-span-3">
-                <table class="w-full text-left border-collapse">
+                <table class="w-full text-left border border-gray-300">
                     <thead class="bg-gray-800 text-white">
                         <tr>
                             <th class="p-3">#</th>
