@@ -1,6 +1,7 @@
 <?php
 require_once 'connection.php';
 
+
 function displayCategories(){
     $conn = dbConnect();
     $sql = "SELECT * FROM categories ORDER BY category_id DESC";
@@ -9,18 +10,28 @@ function displayCategories(){
         if($result->num_rows > 0){
             while($row = $result->fetch_assoc()){
                 echo"
-                    <tr>
-                        <td>".$row['category_id']."</td>
-                        <td>".$row['category_name']."</td>
-                        <td><a href='update-category.php?cat_id=".$row['category_id']."' class='btn btn-sm btn-warning text-white'>Update</a></td>
-                        <td><a href='delete-category.php?cat_id=".$row['category_id']."' class='btn btn-sm btn-danger text-white'>Delete</a></td>
+                    <tr class='border-b border-gray-300'>
+                        <td class='p-3'>".$row['category_id']."</td>
+                        <td class='p-3'>".$row['category_name']."</td>
+                        <td class='p-3'>
+                            <a href='update-category.php?cat_id=".$row['category_id']."'
+                               class='bg-yellow-400 text-white text-sm px-3 py-1 rounded'>
+                               Update
+                            </a>
+                        </td>
+                        <td class='p-3'>
+                            <a href='delete-category.php?cat_id=".$row['category_id']."'
+                               class='bg-red-500 text-white text-sm px-3 py-1 rounded'>
+                               Delete
+                            </a>
+                        </td>
                     </tr>
                 ";
             }
-        }else{
+        } else {
             echo "<tr>
-                <td colspan='4' class='text-center'>
-                    <p class='lead fw-bold fst-italic mb-0'>No Records Found</p>
+                <td colspan='4' class='text-center p-4'>
+                    <p class='text-lg font-bold italic'>No Records Found</p>
                 </td>
             </tr>";
         }
@@ -36,8 +47,10 @@ function addCategory(){
     $sql = "INSERT INTO categories(category_name) VALUE ('$category_name')";
 
     if($conn->query($sql)){
-        echo "<div class='mt-5 alert alert-success text-center fw-bold' role='alert'>NEW CATEGORY ADDED: ".$category_name."</div>";
-    }else{
+        echo "<div class='mt-5 bg-green-100 border border-green-500 text-green-700 text-center font-bold p-3'>
+                NEW CATEGORY ADDED: ".$category_name."
+              </div>";
+    } else {
         die("Error: " . $conn->error);
     }
 }
