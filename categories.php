@@ -24,25 +24,29 @@ include 'functions/category-functions.php';
             include 'admin-menu.php';
         }
         ?>
-        <div class="bg-green-700 text-white p-6 pl-10">
-            <h2 class="text-6xl font-light">
+        <div class="bg-green-700 text-white p-9 pl-10">
+            <h2 class="text-7xl font-light">
                 <i class="fa-solid fa-folder mr-3"></i>Category
             </h2>
         </div>
     </header>
 
-    <main class="w-full mx-auto px-4">
+    <main class="mx-auto px-4">
+
         <div class="w-2/5 mx-auto">
             <form method="post">
-                <div class="flex justify-center items-center gap-2">
+                <div class="grid grid-cols-3 gap-2 items-center">
                     <div class="text-right">
-                        <label for="category-name" class="mt-2">Add Category</label>
+                        <label for="category-name">Add Category</label>
                     </div>
                     <div>
                         <input type="text" name="category_name" id="category-name" class="border border-gray-400 rounded px-3 py-2 w-full" required autofocus>
                     </div>
                     <div>
-                        <button type="submit" name="add" class="bg-green-700 text-white font-bold uppercase px-4 py-2 rounded">Add</button>
+                        <button type="submit" name="add"
+                            class="bg-green-700 text-white font-bold uppercase px-4 py-2 rounded">
+                            Add
+                        </button>
                     </div>
                 </div>
             </form>
