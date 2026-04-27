@@ -41,12 +41,12 @@ if (isset($_POST['update'])) {
 
     <main class="m-full mx-auto px-4">
         <div class="w-2/5 mx-auto">
-            <h2 class="text-4xl font-medium mb-4">Update Category</h2>
+            <h2 class="text-3xl font-medium mb-4">Update Category</h2>
             <form method="post">
                 <input type="text" name="cat_name" class="border border-gray-400 rounded px-3 py-2 w-full mb-4" value="<?= $cat_details['category_name'] ?>" autofocus>
 
                 <div class="flex gap-3">
-                    <a href="categories.php" class="border border-green-700 text-green-700 text-center font-normal px-4 py-2 rounded w-full">Cancel</a>
+                    <a href="categories.php" class="border border-green-700 text-green-700 text-center font-normal px-4 py-2 rounded w-full hover:bg-green-700 hover:text-white">Cancel</a>
                  
                     <button type="submit" name="update" class="bg-green-700 text-white uppercase font-normal px-4 py-2 rounded w-full">Update</button>
                 </div>
